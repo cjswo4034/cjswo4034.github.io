@@ -12,10 +12,10 @@ export function applyLanguages(_Prism) {
    *
    * ```js
    * require("prismjs/components/prism-docker");
-   * require("prismjs/components/prism-ada");
+   * 
    * ```
    */
-
+   require("prismjs/components/prism-java");
 }
 
 export function getTheme(_Prism) {
