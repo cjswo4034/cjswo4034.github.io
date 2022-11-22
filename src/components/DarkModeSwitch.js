@@ -8,7 +8,7 @@ const StyledSwitch = styled('div')`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  padding: 0 20px 0 25px;
+  padding: 0 10px 0 15px;
 
   /* The switch - the box around the slider */
   .switch {

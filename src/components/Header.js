@@ -76,7 +76,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
       }
     `}
     render={(data) => {
-      const logoImg = require('./images/logo.svg');
+      const logoImg = require('./images/logo.svg').default;
 
       const twitter = require('./images/twitter.svg');
 
@@ -99,7 +99,7 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
               <Link to={finalLogoLink} className={'navBarBrand'}>
                 <img
                   className={'img-responsive displayInline'}
-                  src={logo.image !== '' ? logo.image : logoImg}
+                  src={logoImg}
                   alt={'logo'}
                 />
               </Link>
@@ -179,14 +179,12 @@ const Header = ({ location, isDarkThemeActive, toggleActiveTheme }) => (
                     >
                       Star
                     </GitHubButton>
+                    <DarkModeSwitch
+                      isDarkThemeActive={isDarkThemeActive}
+                      toggleActiveTheme={toggleActiveTheme}
+                    />
                   </li>
                 ) : null}
-                <li>
-                  <DarkModeSwitch
-                    isDarkThemeActive={isDarkThemeActive}
-                    toggleActiveTheme={toggleActiveTheme}
-                  />
-                </li>
               </ul>
             </div>
           </nav>

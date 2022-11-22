@@ -37,6 +37,7 @@
     "gatsby-remark-images": "^6.0.0",
     "gatsby-source-filesystem": "^4.0.0",
     "gatsby-transformer-remark": "^5.0.0",
+    "gh-pages": "^4.0.0",
     "graphql": "^15.5.3",
     "is-absolute-url": "^3.0.3",
     "lodash.flatten": "^4.4.0",
@@ -56,8 +57,9 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
+    "deploy": "gatsby build && gh-pages -d public -b deploy",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
     "develop": "NODE_OPTIONS=--openssl-legacy-provider gatsby develop",

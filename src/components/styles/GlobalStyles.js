@@ -225,13 +225,11 @@ export const baseStyles = css`
     height: auto;
     font-size: 16px;
     line-height: 1.5;
-    font-weight: 300;
-    color: #fff !important;
-    margin-top: 16px;
-    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 12px;
   }
   .headerTitle a {
-    color: #fff;
+    color: #000000c7;
   }
 
   .headerTitle a:hover {
@@ -257,7 +255,7 @@ export const baseStyles = css`
     padding: 0 !important;
   }
   .navBarDefault {
-    background-color: #001934;
+    background-color: #fff;
     border-radius: 0;
     border-top: 0;
     margin-bottom: 0;
@@ -269,9 +267,10 @@ export const baseStyles = css`
     -moz-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.8);
     -o-box-shadow: -1px 0px 4px 1px rgba(175, 158, 232, 0.4);
     z-index: 1;
-    padding: 15px;
+    padding: 10px 20px;
     position: relative;
     height: 80px;
+    justify-content: space-between;
   }
   .navBarHeader {
     min-width: 335px;
@@ -280,7 +279,7 @@ export const baseStyles = css`
     align-items: center;
   }
   .navBarBrand {
-    padding: 0px 0px;
+    padding: 0px 3px 0px 0px;
     display: flex;
     align-items: center;
   }
@@ -414,11 +413,7 @@ export const baseStyles = css`
   }
 
   .logoWrapper img {
-    width: 40px;
-  }
-
-  .sideBarUL {
-    margin-top: 32px;
+    width: 50px;
   }
 
   .sideBarUL li {
@@ -755,10 +750,10 @@ export const baseStyles = css`
     }
     .headerTitle {
       padding-right: 50px;
-      font-size: 16px;
+      font-size: 15px;
     }
     .navBarBrand {
-      min-height: 40px;
+      min-height: 50px;
     }
     .navBarBrand img {
       margin-right: 8px;
@@ -826,10 +821,9 @@ export const baseStyles = css`
 
     .navBarBrand {
       font-size: 20px;
-      padding: 0 0;
+      padding: 0 3px 0 0;
       padding-left: 0;
       flex: initial;
-      padding-right: 15px;
     }
 
     .titleWrapper {
@@ -867,7 +861,7 @@ export const baseStyles = css`
 
   @media (min-width: 768px) and (max-width: 991px) {
     .navBarDefault {
-      padding: 10px;
+      padding: 10px 20px;
     }
     .navBarBrand {
       font-size: 22px;
