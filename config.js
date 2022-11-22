@@ -37,10 +37,7 @@ const config = {
     },
   },
   sidebar: {
-    forcedNavOrder: [
-      '/introduction', // add trailing slash if enabled above
-      '/codeblock',
-    ],
+    forcedNavOrder: [],
     collapsedNav: [
       '/codeblock', // add trailing slash if enabled above
     ],
