@@ -6,11 +6,11 @@ export const Sidebar = styled('aside')`
   height: 100vh;
   overflow: auto;
   position: fixed;
-  padding-left: 24px;
+  padding-left: 18px;
   position: -webkit-sticky;
   position: -moz-sticky;
   position: sticky;
-  top: 0;
+  top: 5vh;
 
   background: ${props => props.theme.colors.background};
 
@@ -20,7 +20,7 @@ export const Sidebar = styled('aside')`
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    padding: 7px 24px 7px 16px;
+    padding: 7px 18px 7px 16px;
     border-left: 1px solid #e6ecf1;
     border-left-color: rgb(230, 236, 241);
 

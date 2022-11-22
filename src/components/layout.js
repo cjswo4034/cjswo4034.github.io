@@ -32,7 +32,7 @@ const Wrapper = styled('div')`
 const Content = styled('main')`
   display: flex;
   flex-grow: 1;
-  margin: 0px 88px;
+  margin-left: 30px;
   padding-top: 3rem;
   background: ${({ theme }) => theme.colors.background};
 
@@ -42,7 +42,6 @@ const Content = styled('main')`
 
   @media only screen and (max-width: 1023px) {
     padding-left: 0;
-    margin: 0 10px;
     padding-top: 3rem;
   }
 `;
@@ -52,10 +51,15 @@ const MaxWidth = styled('div')`
     width: 100%;
     position: relative;
   }
+
+  @media (min-width: 767px) {
+    max-width: 58vw;
+  }
 `;
 
 const LeftSideBarWidth = styled('div')`
-  width: 298px;
+  width: 200px;
+  min-width: 200px;
 `;
 
 const RightSideBarWidth = styled('div')`
@@ -69,12 +73,6 @@ const Layout = ({ children, location }) => (
         <LeftSideBarWidth className={'hiddenMobile'}>
           <Sidebar location={location} />
         </LeftSideBarWidth>
-        {config.sidebar.title ? (
-          <div
-            className={'sidebarTitle sideBarShow'}
-            dangerouslySetInnerHTML={{ __html: config.sidebar.title }}
-          />
-        ) : null}
         <Content>
           <MaxWidth>{children}</MaxWidth>
         </Content>

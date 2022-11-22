@@ -61,14 +61,14 @@ public AuthorizationDecision check(Supplier<Authentication> authentication, Http
 ### Spring Security EL
 | Expression Language | Description |
 | --- | --- |
-| `permitAll()` | 항상 `ture`로 평가한다. | 
-| `denyAll()` | 항상 `false`로 평가한다. |
-| `access(AuthorizationManager<RequestAuthorizationContext>)` | 커스텀한 `AuthorizationManager`로 평가한다. |
-| `authenticated()` |  인증된 사용자에 대해서 `true`로 평가한다. |
-| `hasRole(String role)` | - `Principal`이 `{role}`을 가지고 있는지 검증한다. |
-| `hasAnyRole(String... roles)` | - `{roles}`에 존재하는 역할 중 `Principal`이 하나라도 가지고 있는지 검증한다. |
-| `hasAuthority(String authority)` | - `Principal`이 `{authority}`를 가지고 있는지 검증한다. |
-| `hasAnyAuthority(String... authorities)` | - `{authorities}`에 존재하는 권한 중 `Principal`이 하나라도 가지고 있는지 검증한다. |
+| permitAll() | 항상 `ture`로 평가한다. | 
+| denyAll() | 항상 `false`로 평가한다. |
+| authenticated() |  인증된 사용자에 대해서 `true`로 평가한다. |
+| access(`AuthorizationManager`) | 커스텀한 `AuthorizationManager`로 평가한다. |
+| hasRole(`String role`) | - `Principal`이 `role`을 가지고 있는지 검증한다. |
+| hasAnyRole(`String... roles`)` | - `roles`에 존재하는 역할 중 `Principal`이 하나라도 가지고 있는지 검증한다. |
+| hasAuthority(`String authority`) | - `Principal`이 `authority`를 가지고 있는지 검증한다. |
+| hasAnyAuthority(`String... authorities`) | - `authorities`에 존재하는 권한 중 `Principal`이 하나라도 가지고 있는지 검증한다. |
 
-> `hasRole("ROLE_admin")`처럼 권한이 `ROLE_`로 시작하지 않으면 `ROLE_`을 추가한다. 
+> `hasRole("ROLE_admin")`처럼 권한이 `ROLE_`로 시작하지 않으면 `ROLE_`을 추가한다.  
 > `DefaultWebSecurityExpressionHandler`의 `defaultRolePrefix`를 수정하면 변경할 수 있다. 
