@@ -57,17 +57,23 @@ export const StyledMainWrapper = styled.div`
     }
   }
 
+  li > ul {
+    margin: 0px 0px 0px 24px;
+  }
+
   a {
     transition: color 0.15s;
     color: ${props => props.theme.colors.link};
   }
 
   code {
-    border: 1px solid #ede7f3;
+    border: 1px solid #f1c5d1;
     border-radius: 4px;
-    padding: 2px 6px;
+    padding: 2px;
+    margin: 0px 1px;
     font-size: 0.9375em;
-
+    color: #c7254e;
+    
     background: ${props => props.theme.colors.background};
   }
 

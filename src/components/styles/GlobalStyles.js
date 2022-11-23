@@ -713,6 +713,7 @@ export const baseStyles = css`
 
   .pre {
     font-size: 14px;
+    line-height: 27px;
     margin: 0px;
     padding: 16px;
     overflow: auto;

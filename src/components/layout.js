@@ -43,6 +43,7 @@ const Content = styled('main')`
   @media only screen and (max-width: 1023px) {
     padding-left: 0;
     padding-top: 3rem;
+    margin: 0px 10px;
   }
 `;
 

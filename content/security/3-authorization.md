@@ -6,7 +6,7 @@ metaDescription: "This is the meta description for this page"
 
 ## Authorization
 
-- 인증 처리과정에서 리소스를 요청한 클라이언트의 권한 목록을 얻을 수 있었다. 인증 처리과정에서 얻은 권한 목록은 요청 리소스에 대한 접근 권한을 판별할 때 사용된다. `Authorization` 섹션에서는 클라이언트의 인증이 정상적으로 완료된 이후, `Spring Security`가 어떻게 특정 리소스에 대한 접근 권한을 부여하는지 알아본다.
+- 인증 처리과정에서 리소스를 요청한 클라이언트의 권한 목록을 얻을 수 있었다. 권한 목록은 요청 리소스에 대한 접근 권한을 판별할 때 사용된다. `Authorization` 섹션에서는 클라이언트의 인증이 정상적으로 완료된 이후, `Spring Security`가 어떻게 특정 리소스에 대한 접근 권한을 부여하는지 알아본다.
 
 ## Authorization Flow
 
@@ -14,7 +14,7 @@ metaDescription: "This is the meta description for this page"
 
 ### a. AuthorizationFilter
 - 인증된 사용자의 요청에 대한 인가처리를 하는 필터이다.
-- 해당 필터는 `SeuciryContextHolder`에서 `Authentication`을 얻고, 실질적인 인가 처리는 `AuthorizationManager`에게 위임한다.
+- `SeuciryContextHolder`에서 `Authentication`을 얻은 다음 실질적인 인가 처리를 `AuthorizationManager`에게 위임한다.
 - 예외
   - 인증객체가 없는 경우: `AuthenticationCredentialsNotFoundException`
   - 인가되지 않은 경우: `AccessDeniedException`
@@ -22,6 +22,7 @@ metaDescription: "This is the meta description for this page"
 ### b. AuthorizationManager
 - 실질적인 인가 처리를 담당하는 함수형 인터페이스이다.
 - `AuthorizationFilter`가 초기화될 때, 구현체 중 `RequestMatcherDelegatingAuthorizationManager`가 DI된다.
+
 ```java
 @FunctionalInterface
 public interface AuthorizationManager<T> {
@@ -42,6 +43,7 @@ public interface AuthorizationManager<T> {
 - 요청 리소스에 부여된 권한들을 `RequestMatcher`를 사용하여 매치되는 `AuthorizationManager` 구현체에게 인가 처리를 위임한다.
   - `RequestMatcher`는 Security를 설정할 때 `.antMatchers("/resources/**").hasRole("{ROLE}")`과 같은 메서드 체인 정보를 기반으로 생성된다.
 - 평가식과 매치되는 `AuthorizationManager`가 없다면 `null`을 반환한다.
+
 ```java
 @Override
 public AuthorizationDecision check(Supplier<Authentication> authentication, HttpServletRequest request) {
@@ -70,5 +72,5 @@ public AuthorizationDecision check(Supplier<Authentication> authentication, Http
 | hasAuthority(`String authority`) | - `Principal`이 `authority`를 가지고 있는지 검증한다. |
 | hasAnyAuthority(`String... authorities`) | - `authorities`에 존재하는 권한 중 `Principal`이 하나라도 가지고 있는지 검증한다. |
 
-> `hasRole("ROLE_admin")`처럼 권한이 `ROLE_`로 시작하지 않으면 `ROLE_`을 추가한다.  
+>  `hasRole("ROLE_admin")`처럼 권한이 `ROLE_`로 시작하지 않으면 `ROLE_`을 추가한다.  
 > `DefaultWebSecurityExpressionHandler`의 `defaultRolePrefix`를 수정하면 변경할 수 있다. 
